@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3000;
+const port = 3060;
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // POST route to send verification email
-app.post('/send-email', (req, res) => {
+app.post('http://127.0.0.1:5500/email-sender/password-reset.html', (req, res) => {
     const email = req.body.email;
     const verificationCode = Math.floor(1000 + Math.random() * 9000);
 
